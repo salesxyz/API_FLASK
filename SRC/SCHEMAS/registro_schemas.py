@@ -1,25 +1,24 @@
 from SRC.MODELS import RegistroModel
-from SRC import  MA
-from marshmallow import fields
+from SRC import ma
+from marshmallow import fields, validate
 
-class RegistroModel(ma.SQLAlchemyAutoSchema):
+class RegistroSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = CategoriaModel
-    
-      
+        model = RegistroModel
+
     uni_medida = fields.String(
-        required = True
-        validate = validate.OneOf(
-            ['UN', 'KG', 'L', 'CX']
-            error ='Unidade de medida invalida'
+        required=True,
+        validate=validate.OneOf(
+            ['UN', 'KG', 'L', 'CX'],
+            error='Unidade de medida inválida'
         )
     )
 
-    qtd_estoque = fields.Interger(
-        required = True
-        validate = validate.Range(
-            min= 0, 
-            error = 'A quantidade não pode ser negativa!'
+    qtd_estoque = fields.Integer(
+        required=True,
+        validate=validate.Range(
+            min=0,
+            error='A quantidade não pode ser negativa!'
         )
     )
         
