@@ -7,3 +7,4 @@ class CategoriaSchema(ma.SQLAlchemyAutoSchema):
         model = CategoriaModel
         load_instance = True
         include_fk = True
+    

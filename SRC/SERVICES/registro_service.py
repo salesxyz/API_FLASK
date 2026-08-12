@@ -2,7 +2,7 @@
  from connection import db
 
 def salvar_registro():
-
+    
 def cancelar_registro():
 
 

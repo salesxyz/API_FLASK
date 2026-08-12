@@ -5,6 +5,7 @@ from marshmallow import fields
 class UsarioSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = user_models.UsuarioModel
+        load_instance = True
         fields = ('id', 'nome', 'email', 'senha')
 
 
