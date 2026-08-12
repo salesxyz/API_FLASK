@@ -1,8 +1,8 @@
-from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
+from marshmallow import ma
 from SRC.MODELS import user_models
 from marshmallow import fields
 
-class UsuarioSchema(SQLAlchemyAutoSchema):
+class UsuarioSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = user_models.UsuarioModel
         load_instance = True

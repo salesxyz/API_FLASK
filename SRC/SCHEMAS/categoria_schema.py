@@ -1,5 +1,5 @@
 from SRC.MODELS import CategoriaModel
-from SRC import  MA
+from SRC import  ma
 from marshmallow import fields
 
 class CategoriaSchema(ma.SQLAlchemyAutoSchema):
