@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify, make_response
 from marshmallow import ValidationError
 from SRC.SCHEMAS.user_schemas import UsuarioSchema
-from SRC.SERVICES import user_service
+from SRC.SERVICES import user_services as user_service
 from SRC import api
 
 

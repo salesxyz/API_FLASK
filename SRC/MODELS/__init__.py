@@ -1,11 +1,18 @@
 from .user_models import UsuarioModel
-from .categoria_model import CategoriaModel
-from .produto_model import ProdutoModel
-from .registro_model import RegistroModel
+from .categoria_models import Categoria
+from .produto_models import Produto
+from .registro_models import Registro
+
+CategoriaModel = Categoria
+ProdutoModel = Produto
+RegistroModel = Registro
 
 __all__ = [
-    'UsuarioModel'
-    'CategoriaModel'
-    'ProdutoModel'
-    'RegistroModel'   
+    'UsuarioModel',
+    'Categoria',
+    'Produto',
+    'Registro',
+    'CategoriaModel',
+    'ProdutoModel',
+    'RegistroModel'
 ]

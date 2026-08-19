@@ -1,9 +1,15 @@
 from marshmallow import fields, validate
+
 from SRC import ma
-from SRC.MODELS import ProdutoModel
+from SRC.MODELS.produto_models import Produto
 from .categoria_schema import CategoriaSchema
 
+
 class ProdutoSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Produto
+        load_instance = True
+        fields = ('id', 'nome', 'uni_medida', 'qtd_estoque', 'vlr_unitario', 'fk_categoria_id', 'categoria')
 
     nome = fields.String(
         required=True,
@@ -12,7 +18,7 @@ class ProdutoSchema(ma.SQLAlchemyAutoSchema):
             error='O nome deve ter no minimo 3 letras'
         )
     )
-    
+
     uni_medida = fields.String(
         required=True,
         validate=validate.OneOf(
@@ -38,15 +44,13 @@ class ProdutoSchema(ma.SQLAlchemyAutoSchema):
         )
     )
 
+    fk_categoria_id = fields.Integer(required=True)
+
     categoria = fields.Nested(
         CategoriaSchema,
         dump_only=True
     )
 
-    class Meta:
-        model = ProdutoModel
-        load_instance = True
-        include_fk=True
 
 produto_schema = ProdutoSchema()
 

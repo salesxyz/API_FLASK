@@ -1,12 +1,10 @@
 from connection import db
-from sqlalchemy import Column, Integer, String
-from passlib.context import CryptContext
 
 
 class Registro(db.Model):
-    __tablename__ = "usuarios"
- 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    nome = Column(String(120), nullable=False)
-    uni_medida = Column(String(100), nullable=False, unique=True)
-    qtd_estoque = Column(String(255), unique=False)
+    __tablename__ = "registros"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(120), nullable=False)
+    uni_medida = db.Column(db.String(100), nullable=False)
+    qtd_estoque = db.Column(db.Integer, nullable=False)
